@@ -5,9 +5,11 @@ const router = express.Router()
 const { authCheck, adminCheck } = require('../middlewares/auth')
 
 // Import controllers which we use below as arguments in router actions
-const { addImage } = require('../controllers/carousel')
+const { addImage, getAllImages, removeImage } = require('../controllers/carousel')
 
 // Routes (endpoints)
 router.post('/carousel-image', authCheck, adminCheck, addImage)
+router.get('/carousel-images', authCheck, adminCheck, getAllImages)
+router.post('/remove-carousel-image', authCheck, adminCheck, removeImage)
 
 module.exports = router

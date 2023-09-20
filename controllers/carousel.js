@@ -10,8 +10,28 @@ exports.addImage = async (req, res) => {
     res.json({ ok: true })
   } catch (error) {
     console.log('CAROUSEL IMAGE UPLOAD FAILED BE -->', error)
-    res.status(400).json({
-      error: error.message,
+  }
+}
+
+// Get all images from database
+exports.getAllImages = async (req, res) => {
+  try {
+    const images = await Carousel.find({}).exec()
+    // console.log(images.images)
+    res.json(images)
+  } catch (error) {
+    console.log('CAROUSEL GET ALL IMAGES FAILED BE -->', error)
+  }
+}
+
+// Remove image from database
+exports.removeImage = async (req, res) => {
+  try {
+    const deleted = await Carousel.findOneAndDelete({
+      'images.public_id': req.body.imageId,
     })
+    res.json({ ok: true })
+  } catch (error) {
+    console.log('CAROUSEL REMOVE IMAGE FAILED BE -->', error)
   }
 }
