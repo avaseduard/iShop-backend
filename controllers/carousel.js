@@ -17,7 +17,6 @@ exports.addImage = async (req, res) => {
 exports.getAllImages = async (req, res) => {
   try {
     const images = await Carousel.find({}).exec()
-    // console.log(images.images)
     res.json(images)
   } catch (error) {
     console.log('CAROUSEL GET ALL IMAGES FAILED BE -->', error)

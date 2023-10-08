@@ -68,16 +68,16 @@ exports.emptyCart = async (req, res) => {
   res.json(cart)
 }
 
-// Update user's address
-exports.saveAddress = async (req, res) => {
-  // Find user in db based on email form fe and udpate the address with what we receive from fe
-  const userAddress = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { address: req.body.address }
-  ).exec()
-  // Send confirmation to fe
-  res.json({ ok: true })
-}
+// // Update user's address
+// exports.saveAddress = async (req, res) => {
+//   // Find user in db based on email form fe and udpate the address with what we receive from fe
+//   const userAddress = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { address: req.body.address }
+//   ).exec()
+//   // Send confirmation to fe
+//   res.json({ ok: true })
+// }
 
 // Coupon functionality
 exports.applyCouponToUserCart = async (req, res) => {

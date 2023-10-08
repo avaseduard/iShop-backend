@@ -9,7 +9,7 @@ const { addImage, getAllImages, removeImage } = require('../controllers/carousel
 
 // Routes (endpoints)
 router.post('/carousel-image', authCheck, adminCheck, addImage)
-router.get('/carousel-images', authCheck, adminCheck, getAllImages)
+router.get('/carousel-images', getAllImages)
 router.post('/remove-carousel-image', authCheck, adminCheck, removeImage)
 
 module.exports = router
