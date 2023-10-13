@@ -68,16 +68,16 @@ exports.emptyCart = async (req, res) => {
   res.json(cart)
 }
 
-// // Update user's address
-// exports.saveAddress = async (req, res) => {
-//   // Find user in db based on email form fe and udpate the address with what we receive from fe
-//   const userAddress = await User.findOneAndUpdate(
-//     { email: req.user.email },
-//     { address: req.body.address }
-//   ).exec()
-//   // Send confirmation to fe
-//   res.json({ ok: true })
-// }
+// Update user's address
+exports.saveAddress = async (req, res) => {
+  // Find user in db based on email form fe and udpate the address with what we receive from fe
+  const userAddress = await User.findOneAndUpdate(
+    { email: req.user.email },
+    { address: req.body.address }
+  ).exec()
+  // Send confirmation to fe
+  res.json({ ok: true })
+}
 
 // Coupon functionality
 exports.applyCouponToUserCart = async (req, res) => {
@@ -110,8 +110,12 @@ exports.applyCouponToUserCart = async (req, res) => {
 
 // Create card payment order in db
 exports.createOrder = async (req, res) => {
+  console.log('req.user.email', req.user.email)
   // Get payment info from fe
   const { paymentIntent } = req.body.stripeResponse
+  // Get address from fe
+  // const { address } = req.body
+  // console.log('req.body', req.body)
   // Find user in db using email from fe
   const user = await User.findOne({ email: req.user.email }).exec()
   // Get products from user's cart in db
@@ -121,6 +125,7 @@ exports.createOrder = async (req, res) => {
     products,
     paymentIntent,
     orderedBy: user._id,
+    address: user.address,
   }).save()
   // Decrement stock, increment sold
   const bulkOption = products.map(item => {
@@ -140,6 +145,8 @@ exports.createOrder = async (req, res) => {
 exports.createCashOrder = async (req, res) => {
   //
   const { couponApplied } = req.body
+  // Get address from fe
+  const { address } = req.body
   // Find user in db using email from fe
   const user = await User.findOne({ email: req.user.email }).exec()
   // Get user's cart from db
@@ -161,6 +168,7 @@ exports.createCashOrder = async (req, res) => {
       payment_method_types: ['cash'],
     },
     orderedBy: user._id,
+    address: address,
   }).save()
   // Decrement stock, increment sold
   const bulkOption = userCart.products.map(item => {

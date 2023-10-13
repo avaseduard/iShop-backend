@@ -9,7 +9,7 @@ const {
   userCart,
   getUserCart,
   emptyCart,
-  // saveAddress,
+  saveAddress,
   applyCouponToUserCart,
   createOrder,
   createCashOrder,
@@ -23,7 +23,7 @@ const {
 router.post('/user/cart', authCheck, userCart)
 router.get('/user/cart', authCheck, getUserCart)
 router.delete('/user/cart', authCheck, emptyCart)
-// router.post('/user/address', authCheck, saveAddress)
+router.post('/user/address', authCheck, saveAddress)
 router.post('/user/cart/coupon', authCheck, applyCouponToUserCart)
 router.post('/user/order', authCheck, createOrder)
 router.post('/user/cash-order', authCheck, createCashOrder)

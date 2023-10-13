@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+    address: {
+      type: String,
+    },
     addresses: [
       {
         location: {

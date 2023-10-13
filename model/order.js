@@ -23,6 +23,7 @@ const orderSchema = new mongoose.Schema(
       type: ObjectId,
       ref: 'User',
     },
+    address: String,
   },
   { timestamps: true }
 )
