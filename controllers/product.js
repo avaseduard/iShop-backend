@@ -160,7 +160,6 @@ exports.listRelated = async (req, res) => {
 }
 
 // Search & filter //
-
 // Product populate functionality
 const applyPopulations = async products => {
   const productIds = products.map(product => product._id)

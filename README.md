@@ -1,7 +1,3 @@
-In progress...
+The backend of the iShop project.
 
-Made using:
-- Node.JS
-- Express.JS
-- MongoDB
-- Mongoose
+It uses Node.JS as a runtime environment, with Express.JS as a framework to handle the RESTful APIs. It leverages Firebase for authentication (both google and email plus password login). The database is stored in MongoDB and we use Mongoose to interact with it. Big files (pictures) ase saved in Cloudinary. The backend also takes care of the payment intent, as the website allows Stripe payments.

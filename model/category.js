@@ -1,13 +1,12 @@
 const mongoose = require('mongoose')
 
-// trim removes blanks form beginning and end
 const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
       trim: true,
       required: 'Name is required',
-      minlength: [2, 'too short'], // message if it's shorter than 2 characters
+      minlength: [2, 'too short'],
       maxlength: [32, 'too long'],
     },
     slug: {

@@ -37,9 +37,9 @@ exports.read = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
+  // Get the category name from frontend
   const { name } = req.body
   try {
-    // Get the category name from frontend
     // Find the category in db by slug and update the name and slug with the one we get from front end (new: true sends the category after updating)
     const updated = await Category.findOneAndUpdate(
       { slug: req.params.slug },

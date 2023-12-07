@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-// trim removes blanks form beginning and end
 const brandSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      trim: true,
+      trim: true, // removes blanks from beginning and end
       required: 'Name is required',
       minlength: [2, 'too short'], // message if it's shorter than 2 characters
       maxlength: [32, 'too long'],

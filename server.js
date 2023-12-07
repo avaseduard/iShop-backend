@@ -25,11 +25,7 @@ app.use(morgan('dev'))
 app.use(bodyParser.json({ limit: '2mb' }))
 app.use(cors())
 
-// // import routes
-// const authRoutes = require("./routes/auth");
-
 // middleware routes
-// app.use("/api", authRoutes); // use just one route
 readdirSync('./routes/').map(route =>
   app.use('/api', require('./routes/' + route))
 ) // use all routes from the routes directory

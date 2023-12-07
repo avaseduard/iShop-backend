@@ -48,7 +48,7 @@ const productSchema = new mongoose.Schema(
     },
     shipping: {
       type: String,
-      enum: ['Yes', 'No'], // enum means it has to be either one of these two values
+      enum: ['Yes', 'No'], // it has to be either one of these two values
     },
     color: {
       type: String,

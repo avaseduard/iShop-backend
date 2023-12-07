@@ -113,9 +113,6 @@ exports.createOrder = async (req, res) => {
   console.log('req.user.email', req.user.email)
   // Get payment info from fe
   const { paymentIntent } = req.body.stripeResponse
-  // Get address from fe
-  // const { address } = req.body
-  // console.log('req.body', req.body)
   // Find user in db using email from fe
   const user = await User.findOne({ email: req.user.email }).exec()
   // Get products from user's cart in db
