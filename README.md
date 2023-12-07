@@ -1,3 +1,7 @@
 The backend of the iShop project.
 
-It uses Node.JS as a runtime environment, with Express.JS as a framework to handle the RESTful APIs. It leverages Firebase for authentication (both google and email plus password login). The database is stored in MongoDB and we use Mongoose to interact with it. Big files (pictures) ase saved in Cloudinary. The backend also takes care of the payment intent, as the website allows Stripe payments.
+The backend side is powered by Node.js, utilizing Express.js as the primary framework to handle RESTful APIs and streamline the server-side development process. Firebase is seamlessly integrated into the authentication system, providing secure user authentication through both Google and email/password login methods.
+
+The project's database functionality is supported by MongoDB, with Mongoose serving as the ODM (Object Data Modeling) tool to interact with MongoDB, ensuring efficient and structured data management. Cloudinary is employed for the storage of large files, particularly images, offering a scalable and reliable solution for handling media assets.
+
+In addition to user authentication, the backend takes care of payment processing using Stripe, ensuring secure and seamless transactions. The integration with Stripe includes managing payment intents, enabling the website to facilitate online payments effectively.
