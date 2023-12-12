@@ -17,7 +17,7 @@ require('dotenv').config()
 var admin = require('firebase-admin')
 
 // Access the FB_SERVICE_ACCOUNT_KEY from the environment variables
-const serviceAccount = JSON.parse(process.env.FB_SERVICE_ACCOUNT_KEY)
+const serviceAccount = JSON.parse(process.env.FB_SERVICE_ACCOUNT_KEY || '{}')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
