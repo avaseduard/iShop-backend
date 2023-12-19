@@ -27,10 +27,7 @@ app.use(bodyParser.json({ limit: '2mb' }))
 
 // Set middleware of CORS
 app.use((req, res, next) => {
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://ishop-frontend.onrender.com/'
-  )
+  res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE'
@@ -48,7 +45,7 @@ app.use((req, res, next) => {
 app.options('*', (req, res) => {
   console.log('preflight')
   if (
-    req.headers.origin === 'https://ishop-frontend.onrender.com/' &&
+    req.headers.origin === '*' &&
     allowMethods.includes(req.headers['access-control-request-method']) &&
     allowHeaders.includes(req.headers['access-control-request-headers'])
   ) {
