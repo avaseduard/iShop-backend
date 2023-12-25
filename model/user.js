@@ -26,13 +26,10 @@ const userSchema = new mongoose.Schema(
         location: {
           type: String,
           trim: true,
-          required: 'Location is required',
         },
         slug: {
           type: String,
-          unique: true,
           lowercase: true,
-          index: true,
         },
       },
     ],
